@@ -9,6 +9,7 @@ function filterFile(file){
 	return ext == fileExt
 }
 
+//
 
 fs.readdir(filePath, function(err, list){
 	var filteredList = list.filter(filterFile);
