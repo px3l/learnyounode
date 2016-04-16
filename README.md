@@ -1,5 +1,7 @@
 # learnyounode Course Answers
 
+## This repo contains the answers for the learnyounode course. Each program is named as each task. See below for the instructions:
+
 #### HELLO WORLD
 
 Write a program that prints the text "HELLO WORLD" to the console (stdout).
@@ -10,19 +12,19 @@ Write a program that accepts one or more numbers as command-line arguments and p
 
 #### MY FIRST I/O!
 
-Write a program that uses a single synchronous filesystem operation to read a file and print the number of newlines (\n) it contains to the console (stdout), similar to running cat file | wc -l.
+Write a program that uses a single synchronous filesystem operation to read a file and print the number of newlines (`\n`) it contains to the console (stdout), similar to running `cat file | wc -l`.
 
-The full path to the file to read will be provided as the first command-line argument (i.e., process.argv[2]). You do not need to make your own test file. 
+The full path to the file to read will be provided as the first command-line argument (i.e., `process.argv[2]`). You do not need to make your own test file. 
 
 #### MY FIRST ASYNC I/O!
 
-Write a program that uses a single asynchronous filesystem operation to read a file and print the number of newlines it contains to the console (stdout), similar to running cat file | wc -l.
+Write a program that uses a single asynchronous filesystem operation to read a file and print the number of newlines it contains to the console (stdout), similar to running `cat file | wc -l`.
 
 The full path to the file to read will be provided as the first command-line argument.
 
 #### FILTERED LS
 
-Create a program that prints a list of files in a given directory, filtered by the extension of the files. You will be provided a directory name as the first argument to your program (e.g. '/path/to/dir/') and a file extension to filter by as the second argument. 
+Create a program that prints a list of files in a given directory, filtered by the extension of the files. You will be provided a directory name as the first argument to your program (e.g. `'/path/to/dir/'`) and a file extension to filter by as the second argument. 
 
 For example, if you get 'txt' as the second argument then you will need to filter the list to only files that end with .txt. Note that the second argument will not come prefixed with a '.'.
 
@@ -63,7 +65,7 @@ The first line you write should just be an integer representing the number of ch
 
 #### JUGGLING ASYNC
 
-This problem is the same as the previous problem (HTTP COLLECT) in that you need to use http.get(). However, this time you will be provided with three URLs as the first three command-line arguments.
+This problem is the same as the previous problem (HTTP COLLECT) in that you need to use `http.get()`. However, this time you will be provided with three URLs as the first three command-line arguments.
 
 You must collect the complete content provided to you by each of the URLs and print it to the console (stdout). You don't need to print out the length, just the data as a String; one line per URL. The catch is that you must print them out in the same order as the URLs are provided to you as command-line arguments.
 
