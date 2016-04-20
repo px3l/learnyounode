@@ -6,7 +6,7 @@ var httpServer = http.createServer(function(req, res){
 
 	req.pipe(map(function(chunk){
 		return chunk.toString().toUpperCase();
-	}).pipe(res))
+	})).pipe(res)
 	
 })
 

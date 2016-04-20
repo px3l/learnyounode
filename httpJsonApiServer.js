@@ -2,27 +2,38 @@ var http = require("http");
 var url = require("url");
 var port = process.argv[2];
 
-function makeTime(time){
+function makeTime(date){
 	return {
-		hour: time.getHours(),
-		minute: time.getMinutes(),
-		second: time.getSeconds()
+		hour: date.getHours(),
+		minute: date.getMinutes(),
+		second: date.getSeconds()
 	}
 }
 
-function unixTime(time){
+function unixTime(date){
 	return {
-		unixtime: time.getTime()
+		unixtime: date.getTime()
 	}
+}
+
+function writeResponse(data, res){
+	var jsonString = JSON.stringify(data)
+	res.writeHead(200, { 'Content-Type': 'application/json' })
+	res.end(jsonString)
+}
 
 var httpServer = http.createServer(function(req, res){
-	var path = url.parse(req.url, true);
-	var time = new Date(path.query.iso);
-	var result;
+	var urlProps = url.parse(req.url, true);
+	var path = urlProps.pathname;
+	var date = new Date(urlProps.query.iso);
 
 	if (path == "/api/parsetime"){
-		
-	}
+		var data = makeTime(date)
+		writeResponse(data, res)
+	} else if (path == "/api/unixtime"){
+		var data = unixTime(date)
+		writeResponse(data, res)
+	} 
 })
 
 httpServer.listen(port);
