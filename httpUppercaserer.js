@@ -1,13 +1,11 @@
-var http = require("http");
-var map = require("through2-map");
-var port = process.argv[2];
+let http = require('http')
+let map = require('through2-map')
+let port = process.argv[2]
 
-var httpServer = http.createServer(function(req, res){
-
+let httpServer = http.createServer(function(req, res){
 	req.pipe(map(function(chunk){
 		return chunk.toString().toUpperCase();
-	})).pipe(res)
-	
+	})).pipe(res)	
 })
 
 httpServer.listen(port)

@@ -1,6 +1,6 @@
-var http = require("http");
-var url = require("url");
-var port = process.argv[2];
+let http = require('http')
+let url = require('url')
+let port = process.argv[2]
 
 function makeTime(date){
 	return {
@@ -17,21 +17,21 @@ function unixTime(date){
 }
 
 function writeResponse(data, res){
-	var jsonString = JSON.stringify(data)
+	let jsonString = JSON.stringify(data)
 	res.writeHead(200, { 'Content-Type': 'application/json' })
 	res.end(jsonString)
 }
 
-var httpServer = http.createServer(function(req, res){
-	var urlProps = url.parse(req.url, true);
-	var path = urlProps.pathname;
-	var date = new Date(urlProps.query.iso);
+let httpServer = http.createServer(function(req, res){
+	let urlProps = url.parse(req.url, true);
+	let path = urlProps.pathname;
+	let date = new Date(urlProps.query.iso);
 
 	if (path == "/api/parsetime"){
-		var data = makeTime(date)
+		let data = makeTime(date)
 		writeResponse(data, res)
 	} else if (path == "/api/unixtime"){
-		var data = unixTime(date)
+		let data = unixTime(date)
 		writeResponse(data, res)
 	} 
 })

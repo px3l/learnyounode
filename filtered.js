@@ -1,18 +1,16 @@
-var fs = require("fs");
-var filePath = process.argv[2];
-var fileExt = process.argv[3];
+let fs = require('fs')
+let filePath = process.argv[2]
+let fileExt = process.argv[3]
 
 function filterFile(file){
 	if (file.indexOf(".") < 0) return false
-	var parts = file.split(".")
-	var ext = parts.pop()
+	let parts = file.split(".")
+	let ext = parts.pop()
 	return ext == fileExt
 }
 
-//
-
 fs.readdir(filePath, function(err, list){
-	var filteredList = list.filter(filterFile);
+	let filteredList = list.filter(filterFile);
 	filteredList.forEach(function(file){
 		console.log(file);
 	})

@@ -1,18 +1,18 @@
-var http = require("http");
-var bl = require("bl");
+let http = require('http')
+let bl = require('bl')
 
 // pushing urls to an array
 
-var urls = []
+let urls = []
 
-for (var i=2; i<process.argv.length; i++) {
-	var url = process.argv[i]
+for (let i=2; i<process.argv.length; i++) {
+	let url = process.argv[i]
 	urls.push(url)
 }
 
 // array of functions to run with each value
 
-var handlers = urls.map(function(url){
+let handlers = urls.map(function(url){
 	return function(callback){
 		http.get(url, function(response){
 			response.pipe(bl(function (err, data){
@@ -25,8 +25,8 @@ var handlers = urls.map(function(url){
 
 // store the url responses
 
-var storage = []
-var counter = 0
+let storage = []
+let counter = 0
 
 handlers.forEach(function(fn, i){
 	fn(function(err, data){

@@ -1,23 +1,21 @@
-var net = require("net");
-var port = process.argv[2];
+let net = require('net')
+let port = process.argv[2]
 
-function convertMonth(month){
-	month = month+1
-	if (month<10){
-		return "0"+month
+function convertData(data){
+	if (data<10){
+		return "0" + data
 	} else {
-		return month
+		return data
 	}
 }
 
-var server = net.createServer(function(socket){
-	var date = new Date()
-	var datetime = 	date.getFullYear()+"-"+
-					convertMonth(date.getMonth())+"-"+
-					date.getDate()+" "+
-					date.getHours()+":"+
-					date.getMinutes()+"\n"
-
+let server = net.createServer(function(socket){
+	let date = new Date()
+	let datetime = 	date.getFullYear()+"-"+
+		convertData(date.getMonth()+1)+"-"+
+		convertData(date.getDate())+" "+
+		convertData(date.getHours())+":"+
+		convertData(date.getMinutes())+"\n"
 	socket.write(datetime)
 	socket.end()
 })

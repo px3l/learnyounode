@@ -1,6 +1,6 @@
-var mymodule = require("./mymodule");
-var filePath = process.argv[2];
-var fileExt = process.argv[3];
+let mymodule = require('./mymodule')
+let filePath = process.argv[2]
+let fileExt = process.argv[3]
 
 mymodule(filePath, fileExt, function(err, data){
   if (err) {

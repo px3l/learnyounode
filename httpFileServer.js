@@ -1,11 +1,11 @@
-var http = require("http");
-var fs = require("fs");
+let http = require('http')
+let fs = require('fs')
 
-var port = process.argv[2];
-var filePath  = process.argv[3];
+let port = process.argv[2]
+let filePath  = process.argv[3]
 
-var httpServer = http.createServer(function(req, res){
-	var file = fs.createReadStream(filePath)
+let httpServer = http.createServer(function(req, res){
+	let file = fs.createReadStream(filePath)
 	file.pipe(res)
 })
 

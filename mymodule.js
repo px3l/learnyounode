@@ -1,17 +1,17 @@
-var fs = require("fs");
+let fs = require('fs')
 
 module.exports = function (filePath, fileExt, callback) {
 
 	function filterFile(file){
 		if (file.indexOf(".") < 0) return false
-		var parts = file.split(".")
-		var ext = parts.pop()
+		let parts = file.split(".")
+		let ext = parts.pop()
 		return ext == fileExt
 	}
 
 	fs.readdir(filePath, function(err, list){
 		if (err) return callback(err)
-		var filteredList = list.filter(filterFile)
+		let filteredList = list.filter(filterFile)
 		callback(null, filteredList)
 	})
 

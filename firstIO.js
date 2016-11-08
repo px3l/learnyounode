@@ -1,9 +1,6 @@
-var fs = require("fs")
+let fs = require('fs')
 
-var fileContents = fs.readFileSync(process.argv[2])
-var fileString = fileContents.toString()
-var fileArray = fileString.split("\n")
+let file = fs.readFileSync(process.argv[2])
+let fileLines = file.toString().split("\n").length - 1
 
-var answer = fileArray.length - 1
-
-console.log(answer);
+console.log(fileLines);

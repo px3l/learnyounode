@@ -1,6 +1,6 @@
-var http = require("http");
-var bl = require("bl");
-var url = process.argv[2];
+let http = require('http')
+let bl = require('bl')
+let url = process.argv[2]
 
 http.get(url, function(response){
 	response.pipe(bl(function (err, data){
